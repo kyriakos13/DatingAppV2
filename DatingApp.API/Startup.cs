@@ -29,6 +29,10 @@ namespace DatingApp.API
         {   services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
+            // sutitable for authrepository(created one per request within scope) 
+            // one instance for each http request sigleton,transient..
+            //available for injection in our controllers
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
