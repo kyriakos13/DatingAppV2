@@ -31,7 +31,7 @@ namespace DatingApp.API
             services.AddCors();
             // sutitable for authrepository(created one per request within scope) 
             // one instance for each http request sigleton,transient..
-            //available for injection in our controllers
+            //available for depedency injection in our controllers
             services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
