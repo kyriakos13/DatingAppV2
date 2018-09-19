@@ -14,7 +14,7 @@ export class ValueComponent implements OnInit {
   ngOnInit() {
     this.getValues();
   }
-
+  // centralize logic we use services with dependency injection no dublicate code
   getValues() {
     this.http.get('http://localhost:5000/api/values').subscribe(response => {
       this.values = response;
